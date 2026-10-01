@@ -1,39 +1,85 @@
-header { 
-    background: #ee1515; 
-    color: white; 
-    padding: 1.5rem; 
-    text-align: center; 
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-nav { 
-    margin-top: 1rem; 
-    display: flex; 
-    justify-content: center; 
-    gap: 1rem; }
-nav a { 
-    color: white; 
-    text-decoration: none; 
-    font-weight: bold; 
-    background: rgba(0,0,0,0.25); 
-    padding: 0.5rem 1.2rem; 
-    border-radius: 20px; 
-    transition: background 0.2s; }
-nav a:hover { 
-    background: #ffde00; 
-    color: #3b4cca; }
-main { 
-    max-width: 1100px; 
-    margin: 0 auto; 
-    padding: 1.5rem; }
-.toast-banner { 
-    display: flex; 
-    align-items: center; 
-    gap: 1rem; 
-    background: #3b4cca; 
-    color: white; 
-    padding: 0.8rem 1.5rem; 
-    margin: 1rem auto; 
-    max-width: 1000px; 
-    border-radius: 8px; }
-.toast-img { 
-    width: 40px; 
-    height: 40px; }
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #0f172a; /* Dark sleek background so Pokédex red pops */
+  color: #1e293b;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+header {
+  background: linear-gradient(135deg, #cc0000 0%, #ee1515 50%, #b30000 100%);
+  border-bottom: 4px solid #ffde00;
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(238, 21, 21, 0.4);
+}
+
+header h1 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  text-shadow: 2px 2px 0px #3b4cca, -2px -2px 0px #3b4cca, 2px -2px 0px #3b4cca, -2px 2px 0px #3b4cca;
+  margin: 0 0 0.5rem 0;
+}
+
+header p {
+  color: #ffde00;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  background: rgba(0, 0, 0, 0.35);
+  border: 2px solid #ffde00;
+  padding: 0.6rem 1.5rem;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+}
+
+nav a:hover, nav a.active {
+  background: #ffde00;
+  color: #3b4cca;
+  border-color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 222, 0, 0.8);
+  transform: translateY(-3px);
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.toast-banner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: linear-gradient(135deg, #3b4cca 0%, #2a75bb 100%);
+  border: 2px solid #ffde00;
+  color: #ffffff;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem auto;
+  max-width: 1100px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(59, 76, 202, 0.4);
+}
+
+.toast-img {
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0 0 6px rgba(255, 222, 0, 0.8));
+}

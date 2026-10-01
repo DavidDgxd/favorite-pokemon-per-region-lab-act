@@ -1,42 +1,113 @@
-.pokemon-container { 
-    padding: 1rem; 
+.pokemon-container {
+  padding: 0.5rem 0;
 }
-.card-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, 
-    minmax(220px, 1fr)); 
-    gap: 1rem; 
+
+.pokemon-container h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
 .card {
-    border: 2px solid #333; 
-    padding: 1rem; border-radius: 8px; 
-    background: #fff; 
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1); 
+  position: relative;
+  background: #ffffff;
+  border: 3px solid #3b4cca;
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #ee1515 50%, #3b4cca 50%);
+  transition: opacity 0.3s ease;
+}
+
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15); 
-    border-color: #ee1515;
+  transform: translateY(-8px);
+  border-color: #ee1515;
+  box-shadow: 0 18px 30px rgba(238, 21, 21, 0.35);
 }
-.pokemon-img { 
-    width: 120px; 
-    height: 120px; 
-    object-fit: contain; }
-.card h3 { 
-   margin: 0.5rem 0; 
-   color: #cc0000;
+
+.pokemon-img {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.15));
+  transition: transform 0.3s ease;
 }
-.desc { 
-    font-style: italic; 
-    color: #666; 
-    font-size: 0.9rem;
+
+.card:hover .pokemon-img {
+  transform: scale(1.1);
 }
-.inspect-btn { 
-    margin-top: 0.5rem; 
-    background: #2a75bb; 
-    color: white; 
-    border: none; 
-    padding: 0.4rem 0.8rem; 
-    border-radius: 6px; 
-    cursor: pointer; 
+
+.card h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #cc0000;
+  margin: 0 0 0.5rem 0;
+}
+
+.card p {
+  color: #334155;
+  font-size: 0.9rem;
+  margin: 0.25rem 0;
+}
+
+.card p strong {
+  color: #1e293b;
+}
+
+.desc {
+  font-style: italic;
+  color: #64748b;
+  font-size: 0.825rem;
+  line-height: 1.4;
+  margin-top: 0.5rem !important;
+  flex-grow: 1;
+}
+
+.inspect-btn {
+  margin-top: 1.25rem;
+  width: 100%;
+  background: linear-gradient(135deg, #3b4cca 0%, #2a75bb 100%);
+  color: #ffffff;
+  border: 2px solid #ffde00;
+  padding: 0.65rem 1rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.inspect-btn:hover {
+  background: #ee1515;
+  color: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 0 12px rgba(238, 21, 21, 0.6);
 }
