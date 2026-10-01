@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,inject } from '@angular/core';
+import { PokemonService } from '../pokemon';
 
 @Component({
   imports: [],
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './pokemart.css',
   templateUrl: './pokemart.html',
 })
-export class Pokemart {}
+export class Pokemart {
+  pokemonService = inject(PokemonService);
+}

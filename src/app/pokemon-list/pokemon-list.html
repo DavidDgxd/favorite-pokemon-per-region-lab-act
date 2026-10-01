@@ -1,1 +1,13 @@
-<p>pokemon-list works!</p>
+<div class="pokemon-container">
+      <h2>{{ region() }} Region</h2>
+      <div class="card-grid">
+        @for (pokemon of pokemonList(); track pokemon.id) {
+          <div class="card">
+            <h3>{{ pokemon.name }}</h3>
+            <p><strong>Type:</strong> {{ pokemon.type }}</p>
+            <p><strong>Held Item:</strong> 🎒 {{ pokemon.heldItem }}</p>
+            <p class="desc">{{ pokemon.description }}</p>
+          </div>
+        }
+      </div>
+    </div>

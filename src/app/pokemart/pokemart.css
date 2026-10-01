@@ -1,0 +1,33 @@
+.pokemart-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 2rem; 
+    padding: 1rem; 
+}
+.shop-item, .cart-item { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 0.5rem; 
+    padding: 0.5rem; 
+    border-bottom: 1px solid #ddd; 
+}
+.cart-section { 
+    background: #f9f9f9; 
+    padding: 1rem; 
+    border-radius: 8px; 
+    border: 1px solid #ccc; 
+}
+.clear-btn { 
+    background: #d9534f; 
+    color: white; 
+    border: none; 
+    padding: 0.5rem 1rem; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    width: 100%; 
+}
+button { 
+    cursor: pointer; 
+    padding: 0.3rem 0.6rem; 
+}

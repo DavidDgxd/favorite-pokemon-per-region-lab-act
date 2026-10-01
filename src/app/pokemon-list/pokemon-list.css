@@ -1,0 +1,23 @@
+.pokemon-container { 
+    padding: 1rem; 
+}
+.card-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, 
+    minmax(220px, 1fr)); 
+    gap: 1rem; 
+}
+.card {
+    border: 2px solid #333; 
+    padding: 1rem; border-radius: 8px; 
+    background: #fff; 
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1); 
+}
+.card h3 { 
+    margin-top: 0; 
+    color: #cc0000; 
+}
+.desc { 
+    font-style: italic; 
+    color: #555; 
+}

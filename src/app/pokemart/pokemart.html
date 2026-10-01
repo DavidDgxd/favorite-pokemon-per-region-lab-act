@@ -1,1 +1,30 @@
-<p>pokemart works!</p>
+<div class="pokemart-grid">
+  <div class="shop-section">
+    <h2>🏬 PokéMart Shop</h2>
+    <div class="item-list">
+      @for (item of pokemonService.pokemartItems(); track item.id) {
+        <div class="shop-item">
+          <span><strong>{{ item.name }}</strong> - ₱{{ item.price }}</span>
+          <button (click)="pokemonService.addToCart(item)">Add to Cart</button>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="cart-section">
+    <h2>🛒 Your Cart</h2>
+    <div class="cart-list">
+      @for (item of pokemonService.cart(); track $index) {
+        <div class="cart-item">
+          <span>{{ item.name }} - ₱{{ item.price }}</span>
+          <button (click)="pokemonService.removeFromCart($index)">Remove</button>
+        </div>
+      } @empty {
+        <p>Your cart is empty.</p>
+      }
+    </div>
+    <hr>
+    <h3>Total Price: ₱{{ pokemonService.totalPrice() }}</h3>
+    <button class="clear-btn" (click)="pokemonService.clearCart()">Checkout / Clear</button>
+  </div>
+</div>

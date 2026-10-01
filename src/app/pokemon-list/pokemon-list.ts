@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, input, output, computed } from '@angular/core';
+import { PokemonService } from '../pokemon';
+import { Pokemon } from '../models-pokemon';
 
 @Component({
   imports: [],
@@ -6,4 +8,19 @@ import { Component } from '@angular/core';
   styleUrl: './pokemon-list.css',
   templateUrl: './pokemon-list.html',
 })
-export class PokemonList {}
+export class PokemonListComponent {
+  
+  region = input.required<'Kanto' | 'Johto' | 'Hoenn'>();
+
+  
+  pokemonSelect = output<Pokemon>();
+
+  private pokemonService = inject(PokemonService);
+
+  pokemonList = computed(() => this.pokemonService.getPokemonByRegion(this.region())());
+
+  onSelectPokemon(pokemon: Pokemon) {
+    this.pokemonService.setSelectedPokemon(pokemon);
+    this.pokemonSelect.emit(pokemon);
+  }
+} 
