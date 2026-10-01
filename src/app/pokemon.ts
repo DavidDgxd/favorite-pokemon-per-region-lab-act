@@ -33,7 +33,6 @@ export class PokemonService {
     { id: 18, name: 'Metagross', type: '⚙️ Steel / 🔮 Psychic', heldItem: 'Twisted Spoon', description: 'Features four brains joined in a neural network.', region: 'Hoenn', imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/376.png' }
   ]);
 
-
   pokemartItems = signal<Item[]>([
     { id: 101, name: 'Poké Ball 🔴', price: 200, imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png' },
     { id: 102, name: 'Great Ball 🔵', price: 600, imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/great-ball.png' },
@@ -47,21 +46,19 @@ export class PokemonService {
     { id: 110, name: 'Paralyze Heal 🟡', price: 200, imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/paralyze-heal.png' }
   ]);
 
-
   private cartItems = signal<Item[]>([]);
   cart = this.cartItems.asReadonly();
 
   selectedPokemon = signal<Pokemon | null>(null);
 
-
   totalPrice = computed(() =>
     this.cartItems().reduce((sum, item) => sum + item.price, 0)
   );
 
-  getPokemonByRegion(region: 'Kanto' | 'Johto' | 'Hoenn') {
-    return computed(() => this.pokemonList().filter(p => p.region === region));
+  // FIXED: Simply returns the filtered array directly so computed() works without signal creation side-effects
+  getPokemonByRegion(region: 'Kanto' | 'Johto' | 'Hoenn'): Pokemon[] {
+    return this.pokemonList().filter(p => p.region === region);
   }
-
 
   addToCart(item: Item) {
     this.cartItems.update(current => [...current, item]);
@@ -78,4 +75,4 @@ export class PokemonService {
   setSelectedPokemon(pokemon: Pokemon) {
     this.selectedPokemon.set(pokemon);
   }
-}           
+}
